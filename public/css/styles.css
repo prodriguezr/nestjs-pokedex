@@ -1,0 +1,15 @@
+html,
+body {
+  padding: 20px;
+  background-color: gray;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-seri;
+}
+
+h1 {
+  font-size: 40px;
+  color: white;
+}
+
+hr {
+  color: white;
+}
