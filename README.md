@@ -24,50 +24,39 @@
 
 ## Description
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+This is a REST API based on the Fernando Herrera NestJS13+ course
 
-## Installation
+### Used stack:
 
-```bash
-$ npm install
-```
+- MongoDB
+- NestJS13+
 
-## Running the app
+### Steps for prepare and execute the app in development mode
 
-```bash
-# development
-$ npm run start
-
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
-```
-
-## Test
+1. Clone this repository
+2. Execute
 
 ```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
+yarn install
 ```
 
-## Support
+3. Have Nest CLI installed
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+```bash
+npm i -g @nestjs/cli
+```
 
-## Stay in touch
+4. Rename the **_env.sample_** file (located in the root of the project) to **.env**
+5. Set the values of the following environment variables to the desired value:
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+```bash
+PORT=
+MONGODB_PORT=
+MONGODB_DATABASE=
+```
 
-## License
+6. Raise the database
 
-Nest is [MIT licensed](LICENSE).
+```
+docker-compose up -d
+```
