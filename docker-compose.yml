@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  db:
+    image: mongo:5
+    restart: always
+    ports:
+      - '${MONGODB_PORT}:27017'
+    environment:
+      MONGODB_DATABASE: ${MONGODB_DATABASE}
+    volumes:
+      - ./.db:/data/db
