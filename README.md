@@ -60,3 +60,9 @@ MONGODB_DATABASE=
 ```
 docker-compose up -d
 ```
+
+7. Rebuild the database with the seed. Be sure to replace <port> port with the port this application is running on.
+
+```
+https://localhost:<port>/api/seed
+```
