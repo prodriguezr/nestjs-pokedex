@@ -8,8 +8,8 @@ import { InjectModel } from '@nestjs/mongoose';
 import { Model, isValidObjectId } from 'mongoose';
 
 import { Pokemon } from './entities';
-import { CreatePokemonDto } from './dto/create-pokemon.dto';
-import { UpdatePokemonDto } from './dto/update-pokemon.dto';
+import { CreatePokemonDto, UpdatePokemonDto } from './dto';
+import { PaginationDto } from 'src/common/dto';
 
 @Injectable()
 export class PokemonService {
@@ -30,26 +30,35 @@ export class PokemonService {
     }
   }
 
-  findAll() {
-    return `This action returns all pokemon`;
+  async findAll({ limit = 10, skip = 0 }: PaginationDto) {
+    return await this.pokemonModel
+      .find()
+      .limit(limit)
+      .skip(skip)
+      .sort({ no: 1 })
+      .select('-__v');
   }
 
   async findOne(id: string) {
     let pokemon: Pokemon;
 
     if (!isNaN(+id)) {
-      pokemon = await this.pokemonModel.findOne({
-        no: id,
-      });
+      pokemon = await this.pokemonModel
+        .findOne({
+          no: id,
+        })
+        .select('-__v');
     }
     if (!pokemon && isValidObjectId(id)) {
-      pokemon = await this.pokemonModel.findById(id);
+      pokemon = await this.pokemonModel.findById(id).select('-__v');
     }
 
     if (!pokemon) {
-      pokemon = await this.pokemonModel.findOne({
-        name: id.toLowerCase().trim(),
-      });
+      pokemon = await this.pokemonModel
+        .findOne({
+          name: id.toLowerCase().trim(),
+        })
+        .select('-__v');
     }
 
     if (!pokemon)
