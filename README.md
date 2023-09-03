@@ -51,8 +51,9 @@ npm i -g @nestjs/cli
 
 ```bash
 PORT=
-MONGODB_PORT=
-MONGODB_DATABASE=
+MONGODB_URL=
+DEFAULT_LIMIT=
+DEFAULT_SEED_LIMIT=
 ```
 
 6. Raise the database
