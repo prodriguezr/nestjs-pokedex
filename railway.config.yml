@@ -1,0 +1,10 @@
+stack: Node.js
+build:
+  commands:
+    - yarn install
+    - yarn build
+deploy:
+  commands:
+    - yarn start
+ignore:
+  - docker-compose.yml

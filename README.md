@@ -67,3 +67,19 @@ docker-compose up -d
 ```
 https://localhost:<port>/api/seed
 ```
+
+## Create docker container as Production build
+
+1. Create the file `.env.production`
+2. Set the environment variables for production
+3. Create the new image:
+
+```bash
+docker-compose -f docker-compose.prod.yaml --env-file .env.production up --build
+```
+
+4. Run the container:
+
+```bash
+docker-compose -f docker-compose.prod.yaml --env-file .env.production up -d
+```

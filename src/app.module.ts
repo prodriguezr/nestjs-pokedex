@@ -21,6 +21,7 @@ import { AppConfiguration, JoiValidationSchema } from './config';
     MongooseModule.forRootAsync({
       useFactory: async () => ({
         uri: AppConfiguration().databaseUrl,
+        dbName: AppConfiguration().databaseName,
       }),
     }),
     PokemonModule,
